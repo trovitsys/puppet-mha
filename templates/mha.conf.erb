@@ -1,0 +1,43 @@
+[server default]
+
+# mysql user and password
+user=<%= @mysql_user %>
+password=<%= @mysql_password %>
+
+# mysql repl user and password
+repl_user=<%= @mysql_repl_user %>
+repl_password=<%= @mysql_repl_password %>
+
+ssh_user=<%= @ssh_user %>
+ssh_options="<%= real_ssh_options %>"
+
+# working directory on the manager
+manager_workdir=<%= scope['mha::manager::workdir'] %>/<%= @cluster_name %>
+# working directory on MySQL servers
+remote_workdir=<%= scope['mha::manager::workdir'] %>/<%= @cluster_name %>
+
+master_binlog_dir=<%= @master_binlog_dir %>
+
+manager_log=<%= @real_manager_log %>
+
+<% if ![nil, '', :undef].include?(@mha_online_change_path) -%>
+master_ip_online_change_script=<%= @mha_online_change_path %>
+<% end -%>
+<% if ![nil, '', :undef].include?(@mha_failover_path) -%>
+master_ip_failover_script=<%= @mha_failover_path %>
+<% end -%>
+<% if ![nil, '', :undef].include?(@mha_report_path) -%>
+report_script=<%= @mha_report_path %>
+<% end -%>
+
+<% extra_options.sort_by { |key, value_hash| key}.each do |key, value_hash| -%>
+<%= key %>=<%= value_hash %>
+<% end -%>
+
+<% servers.sort_by {|key, value_hash| key}.each do |key, value_hash| -%>
+[<%= key %>]
+<% value_hash.sort_by {|parameter, param_value| parameter}.each do |parameter, param_value| -%>
+<%= parameter %>=<%= param_value %>
+<% end -%>
+
+<% end -%>

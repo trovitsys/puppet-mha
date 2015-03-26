@@ -1,0 +1,14 @@
+{
+  "name": "puppet-mha",
+  "version": "0.1.0",
+  "author": "Trovit Systems",
+  "summary": "Manage MHA for MySQL install and configuration",
+  "license": "Apache 2.0",
+  "source": "https://github.com/trovitsys/puppet-mha.git",
+  "project_page": "https://github.com/trovitsys/puppet-mha",
+  "issues_url": "https://github.com/trovitsys/puppet-mha/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+

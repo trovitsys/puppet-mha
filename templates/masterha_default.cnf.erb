@@ -1,0 +1,77 @@
+[server default]
+
+<% if @ssh_user != '' -%>
+ssh_user=<%= @user %>
+<% end -%>
+<% if @ssh_port != '' -%>
+ssh_port=<%= @ssh_port %>
+<% end -%>
+<% if @ssh_connection_timeout != '' -%>
+ssh_connection_timeout=<%= @ssh_connection_timeout %>
+<% end -%>
+<% if @ssh_options != '' -%>
+ssh_options=<%= @ssh_options %>
+<% end -%>
+<% if @skip_reset_slave != '' -%>
+skip_reset_slave=<%= @skip_reset_slave %>
+<% end -%>
+<% if @mysql_user != '' -%>
+user = <%= mysql_user %>
+<% end -%>
+<% if @mysql_password != '' -%>
+password=<%= @mysql_password %>
+<% end -%>
+<% if @port != '' -%>
+port=<%= @port %>
+<% end -%>
+<% if @repl_user != '' -%>
+repl_user=<%= @repl_user %>
+<% end -%>
+<% if @repl_password != '' -%>
+repl_password=<%= @repl_password %>
+<% end -%>
+<% if @disable_log_bin != '' -%>
+disable_log_bin=<%= @disable_log_bin %>
+<% end -%>
+<% if @master_pid_file != '' -%>
+master_pid_file=<%= @master_pid_file %>
+<% end -%>
+<% if @log_level != '' -%>
+log_level=<%= @log_level %>
+<% end -%>
+<% if @check_repl_delay != '' -%>
+check_repl_delay=<%= @check_repl_delay %>
+<% end -%>
+<% if @check_repl_filter != '' -%>
+check_repl_filter=<%= @check_repl_filter %>
+<% end -%>
+<% if @latest_priority != '' -%>
+latest_priority=<%= @latest_priority %>
+<% end -%>
+<% if @multi_tier_slave != '' -%>
+multi_tier_slave=<%= @multi_tier_slave %>
+<% end -%>
+<% if @ping_interval != '' -%>
+ping_interval=<%= @ping_interval %>
+<% end -%>
+<% if @ping_type != '' -%>
+ping_type=<%= @ping_type %>
+<% end -%>
+<% if @secondary_check_script != '' -%>
+secondary_check_script=<%= @secondary_check_script %>
+<% end -%>
+<% if @master_ip_failover_script != '' -%>
+master_ip_failover_script=<%= @master_ip_failover_script %>
+<% end -%>
+<% if @master_ip_online_change_script != '' -%>
+master_ip_online_change_script=<%= @master_ip_online_change_script %>
+<% end -%>
+<% if @shutdown_script != '' -%>
+shutdown_script=<%= @shutdown_script %>
+<% end -%>
+<% if @report_script != '' -%>
+report_script=<%= @report_script %>
+<% end -%>
+<% if @init_conf_load_script != '' -%>
+init_conf_load_script=<%= @init_conf_load_script %>
+<% end -%>

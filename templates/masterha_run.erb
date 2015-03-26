@@ -1,0 +1,6 @@
+#!/bin/sh
+exec masterha_manager \
+  --conf=<%= scope['mha::manager::mha_conf_dir'] %>/<%= @cluster_name %>.conf \
+  --wait_on_monitor_error=<%= @wait_on_monitor_error %> \
+  --wait_on_failover_error=<%= @wait_on_failover_error %> \
+  --last_failover_minute=1 >> <%= @real_manager_log %> 2>&1
