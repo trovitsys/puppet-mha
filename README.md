@@ -3,15 +3,10 @@
 #### Table of Contents
 
 1. [Overview](#overview)
-2. [Module Description - What the module does and why it is useful](#module-description)
-3. [Setup - The basics of getting started with mha](#setup)
-    * [What mha affects](#what-mha-affects)
-    * [Setup requirements](#setup-requirements)
-    * [Beginning with mha](#beginning-with-mha)
-4. [Usage - Configuration options and additional functionality](#usage)
-5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-5. [Limitations - OS compatibility, etc.](#limitations)
-6. [Development - Guide for contributing to the module](#development)
+2. [Module Description](#module-description)
+3. [Usage](#usage)
+4. [Limitations](#limitations)
+5. [Development](#development)
 
 ## Overview
 
@@ -28,6 +23,7 @@ instances, giving SSH access to the nodes etc.
 
 ### How to install a manager
 
+```
   $servers_hash = { 'server01' => { 'hostname' => 'my-server-01' },
                     'server02' => { 'hostname' => 'my-server-02',
                                     'skip_reset_slave' => 1 }
@@ -40,14 +36,17 @@ instances, giving SSH access to the nodes etc.
     ssh_key_pub          => '3j234324jn',
     online_change_script => 'profiles/mha/mha_online_change.sh.erb'
   }
+```
 
-Keep in mind that *online_change_script* and all the other "scripts" paramaters
+Keep in mind that **online_change_script** and all the other *scripts* parameters
 must point to a template YOU have to implement. MHA gives you 100% flexibility about
 that and so do we.
 
 ### How to install a node
 
+```
   include mha::node
+```
 
 ### Bottom line
 
@@ -65,11 +64,12 @@ If you have some new cool feature or bugfix, just open a PR and we will take
 a look at it for sure!
 Feel free to open any issue you find too (but a PR is always better :P )
 
-## Release Notes/Contributors/Etc **Optional**
+## Release Notes/Contributors/Etc
 
 Release 0.1.0
 
 Author: Jordi Clariana <jordiclariana@gmail.com>
+
 Contributors:
  - Davide Ferrari <vide80@gmail.com>
 
