@@ -143,7 +143,7 @@ define mha::manager::instance (
     require => File[$mha::manager::workdir]
   }
 
-  File <<| tag == "mha_workdir" |>>
+  File <<| tag == 'mha_workdir' |>>
   File <<| tag == "mha_${cluster_name}_manager" |>>
 
   $mha_cluster_scripts_dir = "${mha::manager::mha_conf_dir}/scripts/${cluster_name}"
@@ -158,7 +158,7 @@ define mha::manager::instance (
       ensure  => present,
       content => template($online_change_script),
       mode    => '0755',
-      require => File["${mha_cluster_scripts_dir}"]
+      require => File[$mha_cluster_scripts_dir]
     }
   }
 
@@ -168,7 +168,7 @@ define mha::manager::instance (
       ensure  => present,
       content => template($failover_script),
       mode    => '0755',
-      require => File["${mha_cluster_scripts_dir}"]
+      require => File[$mha_cluster_scripts_dir]
     }
   }
 
@@ -178,7 +178,7 @@ define mha::manager::instance (
       ensure  => present,
       content => template($report_script),
       mode    => '0755',
-      require => File["${mha_cluster_scripts_dir}"]
+      require => File[$mha_cluster_scripts_dir]
     }
   }
 
