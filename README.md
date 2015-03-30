@@ -1,4 +1,4 @@
-# mha
+# puppet-mha
 
 #### Table of Contents
 
@@ -11,6 +11,7 @@
 ## Overview
 
 puppet-mha installs and configures a MHA (Mysql High Availability) cluster
+This module is provided to you by [Trovit](http://www.trovit.com) Systems department
 
 ## Module Description
 
@@ -66,7 +67,12 @@ Feel free to open any issue you find too (but a PR is always better :P )
 
 ## Release Notes/Contributors/Etc
 
+Release 0.1.1
+ - Linter fixes
+ - README fixes
+
 Release 0.1.0
+ - Initial release
 
 Author: Jordi Clariana <jordiclariana@gmail.com>
 
