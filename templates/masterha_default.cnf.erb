@@ -16,7 +16,7 @@ ssh_options=<%= @ssh_options %>
 skip_reset_slave=<%= @skip_reset_slave %>
 <% end -%>
 <% if @mysql_user != '' -%>
-user = <%= mysql_user %>
+user = <%= @mysql_user %>
 <% end -%>
 <% if @mysql_password != '' -%>
 password=<%= @mysql_password %>
