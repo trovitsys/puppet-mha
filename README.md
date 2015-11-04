@@ -16,8 +16,8 @@ This module is provided to you by [Trovit](http://www.trovit.com) Systems depart
 ## Module Description
 
 This module is composed by the manager and the node. The node class is really simple, it
-just installs some helper on the mysqld machine, while the manager is where the magic 
-happens. puppet-mha helps you installing all the packages, configuring multiple MHA 
+just installs some helper on the mysqld machine, while the manager is where the magic
+happens. puppet-mha helps you installing all the packages, configuring multiple MHA
 instances, giving SSH access to the nodes etc.
 
 ## Usage
@@ -28,8 +28,8 @@ instances, giving SSH access to the nodes etc.
   $servers_hash = { 'server01' => { 'hostname' => 'my-server-01' },
                     'server02' => { 'hostname' => 'my-server-02',
                                     'skip_reset_slave' => 1 }
-                  } 
-  mha::instance { 'my_cluster':
+                  }
+  mha::manager::instance { 'my_cluster':
     servers              => $servers_hash,
     mysql_password       => 'foo',
     mysql_repl_password  => 'bar',
