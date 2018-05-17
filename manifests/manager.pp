@@ -11,6 +11,8 @@
 #
 # https://code.google.com/p/mysql-master-ha/wiki/Parameters
 #
+# [*manager_name*]
+#   Name of the MHA manager
 # [*mha_conf_dir*]
 #   Base directory for MHA configuration file. Usually under /etc
 # [*workdir*]
@@ -86,6 +88,7 @@
 # Copyright 2015 Trovit Search S.L.
 #
 class mha::manager (
+  $manager_name                   = $mha::params::manager_name,
   $mha_conf_dir                   = $mha::params::mha_conf_dir,
   $workdir                        = $mha::params::workdir,
   $user                           = $mha::params::user,
@@ -134,7 +137,7 @@ class mha::manager (
 
   @@file { $workdir:
     ensure => directory,
-    tag    => 'mha_workdir'
+    tag    => "mha_workdir_${manager_name}"
   }
 
   file { "${mha_conf_dir}/scripts":
