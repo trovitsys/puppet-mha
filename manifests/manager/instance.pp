@@ -13,6 +13,9 @@
 # [*cluster_name*] NAMEVAR
 #   String.
 #   Specify the cluster name ID. Do not use spaces.
+# [*manager_name*]
+#   String.
+#   Specify the name of the MHA manager.
 # [*servers*]
 #   Hash.
 #   An hash of servers that compose the cluser. Be careful: the hash key should always be in 
@@ -81,6 +84,7 @@ define mha::manager::instance (
   $ssh_key_pub,
   $ssh_key_type,
   $master_binlog_dir,
+  $manager_name           = 'mha',
   $cluster_name           = $name,
   $user_home              = '/root',
   $ssh_user               = 'root',
@@ -95,7 +99,7 @@ define mha::manager::instance (
   $daemon                 = false
 ) {
 
-  include mha::manager
+  ensure_resource('class', 'mha::manager', { 'manager_name' => $manager_name } )
 
   if ( $manager_log == '' or $manager_log == undef) {
     $real_manager_log = "/var/log/masterha_${cluster_name}.log"
@@ -143,7 +147,7 @@ define mha::manager::instance (
     require => File[$mha::manager::workdir]
   }
 
-  File <<| tag == 'mha_workdir' |>>
+  File <<| tag == "mha_workdir_${manager_name}" |>>
   File <<| tag == "mha_${cluster_name}_manager" |>>
 
   $mha_cluster_scripts_dir = "${mha::manager::mha_conf_dir}/scripts/${cluster_name}"

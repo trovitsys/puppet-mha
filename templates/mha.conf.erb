@@ -9,7 +9,7 @@ repl_user=<%= @mysql_repl_user %>
 repl_password=<%= @mysql_repl_password %>
 
 ssh_user=<%= @ssh_user %>
-ssh_options="<%= real_ssh_options %>"
+ssh_options="<%= @real_ssh_options %>"
 
 # working directory on the manager
 manager_workdir=<%= scope['mha::manager::workdir'] %>/<%= @cluster_name %>
@@ -30,11 +30,11 @@ master_ip_failover_script=<%= @mha_failover_path %>
 report_script=<%= @mha_report_path %>
 <% end -%>
 
-<% extra_options.sort_by { |key, value_hash| key}.each do |key, value_hash| -%>
+<% @extra_options.sort_by { |key, value_hash| key}.each do |key, value_hash| -%>
 <%= key %>=<%= value_hash %>
 <% end -%>
 
-<% servers.sort_by {|key, value_hash| key}.each do |key, value_hash| -%>
+<% @servers.sort_by { |key, value_hash| key}.each do |key, value_hash| -%>
 [<%= key %>]
 <% value_hash.sort_by {|parameter, param_value| parameter}.each do |parameter, param_value| -%>
 <%= parameter %>=<%= param_value %>
