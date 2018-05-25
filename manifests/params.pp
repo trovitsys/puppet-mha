@@ -32,4 +32,5 @@ class mha::params {
   $init_conf_load_script = ''
   $remote_workdir = ''
   $master_binlog_dir = ''
+  $manager_name = 'mha'
 }

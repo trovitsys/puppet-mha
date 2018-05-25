@@ -66,6 +66,9 @@ a look at it for sure!
 Feel free to open any issue you find too (but a PR is always better :P )
 
 ## Release Notes/Contributors/Etc
+Release 0.2.0
+ - Allows deploying multiple MHA nodes
+ - Fixed syntax issues in templates
 
 Release 0.1.1
  - Linter fixes
